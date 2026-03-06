@@ -5,6 +5,9 @@ using Casbin.Caching;
 using Casbin.Functions;
 using Casbin.Model;
 using DynamicExpresso;
+#if !NET452
+using Microsoft.Extensions.Logging;
+#endif
 
 namespace Casbin.Evaluation;
 
@@ -19,6 +22,10 @@ internal class ExpressionHandler : IExpressionHandler
 #endif
 
     private bool TryCompile { get; set; } = true;
+
+#if !NET452
+    internal ILogger Logger { get; set; }
+#endif
 
     public ExpressionHandler()
     {
@@ -117,9 +124,12 @@ internal class ExpressionHandler : IExpressionHandler
         {
             func = CompileExpression<TRequest, TPolicy>(in context, expressionString);
         }
-        catch (Exception)
+        catch (Exception e)
         {
             func = null;
+#if !NET452
+            Logger?.LogWarning(e, "Failed to compile the expression \"{ExpressionString}\".", expressionString);
+#endif
             return false;
         }
         return true;
