@@ -159,7 +159,34 @@ public class BuiltInFunctionTest
         ["/parent?status=1&type=2", "/parent/child", false],
         ["/parent/child/?status=1&type=2", "/parent/child/", true],
         ["/parent/child/?status=1&type=2", "/parent/child", false],
-        ["/parent/child?status=1&type=2", "/parent/child/", false]
+        ["/parent/child?status=1&type=2", "/parent/child/", false],
+        // wildcard *
+        ["/foo", "/foo", true],
+        ["/foo", "/foo*", true],
+        ["/foo", "/foo/*", false],
+        ["/foo/bar", "/foo", false],
+        ["/foo/bar", "/foo*", false],
+        ["/foo/bar", "/foo/*", true],
+        ["/foobar", "/foo", false],
+        ["/foobar", "/foo*", false],
+        ["/foobar", "/foo/*", false],
+        // {param} placeholders
+        ["/", "/{resource}", false],
+        ["/resource1", "/{resource}", true],
+        ["/myid", "/{id}/using/{resId}", false],
+        ["/myid/using/myresid", "/{id}/using/{resId}", true],
+        // {param} + wildcard
+        ["/proxy/myid", "/proxy/{id}/*", false],
+        ["/proxy/myid/", "/proxy/{id}/*", true],
+        ["/proxy/myid/res", "/proxy/{id}/*", true],
+        ["/proxy/myid/res/res2", "/proxy/{id}/*", true],
+        ["/proxy/myid/res/res2/res3", "/proxy/{id}/*", true],
+        ["/proxy/", "/proxy/{id}/*", false],
+        // query strings with {param} + wildcard
+        ["/proxy/myid?status=1&type=2", "/proxy/{id}/*", false],
+        ["/proxy/myid/res?status=1&type=2", "/proxy/{id}/*", true],
+        ["/proxy/myid/res/res2?status=1&type=2", "/proxy/{id}/*", true],
+        ["/proxy/myid/res/res2/res3?status=1&type=2", "/proxy/{id}/*", true]
     ];
 
     public static IEnumerable<object[]> GlobMatchTestData =
