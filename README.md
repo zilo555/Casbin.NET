@@ -1,9 +1,9 @@
 # Casbin.NET
 
 [![Build Status](https://dev.azure.com/Casbin/Casbin.NET/_apis/build/status/casbin.Casbin.NET?branchName=master)](https://dev.azure.com/Casbin/Casbin.NET/_build?definitionId=1)
-[![Coverage Status](https://coveralls.io/repos/github/casbin/Casbin.NET/badge.svg?branch=master)](https://coveralls.io/github/casbin/Casbin.NET?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/apache/casbin-Casbin.NET/badge.svg?branch=master)](https://coveralls.io/github/apache/casbin-Casbin.NET?branch=master)
 [![Nuget](https://img.shields.io/nuget/v/Casbin.NET.svg)](https://www.nuget.org/packages/Casbin.NET/)
-[![Release](https://img.shields.io/github/release/casbin/Casbin.NET.svg)](https://github.com/casbin/Casbin.NET/releases/latest)
+[![Release](https://img.shields.io/github/release/apache/casbin-Casbin.NET.svg)](https://github.com/apache/casbin-Casbin.NET/releases/latest)
 [![Nuget](https://img.shields.io/nuget/dt/Casbin.NET.svg)](https://www.nuget.org/packages/Casbin.NET/)
 [![Discord](https://img.shields.io/discord/1022748306096537660?logo=discord&label=discord&color=5865F2)](https://discord.gg/S5UjpzGZjN)
 
@@ -18,9 +18,9 @@ Casbin.NET is a powerful and efficient open-source access control library for [.
 | [Casbin](https://github.com/casbin/casbin)                   | [jCasbin](https://github.com/casbin/jcasbin)                 | [node-Casbin](https://github.com/casbin/node-casbin)         | [PHP-Casbin](https://github.com/php-casbin/php-casbin)       |
 | production-ready                                             | production-ready                                             | production-ready                                             | production-ready                                             |
 
-| [![python](https://github.com/casbin/casbin.io/blob/master/img/langs/python.png?raw=true)](https://github.com/casbin/pycasbin) | [![dotnet](https://github.com/casbin/casbin.io/blob/master/img/langs/dotnet.png?raw=true)](https://github.com/casbin/Casbin.NET) | [![delphi](https://github.com/casbin/casbin.io/blob/master/img/langs/delphi.png?raw=true)](https://github.com/casbin4d/Casbin4D) | [![rust](https://github.com/casbin/casbin.io/blob/master/img/langs/rust.png?raw=true)](https://github.com/casbin/casbin-rs) |
+| [![python](https://github.com/casbin/casbin.io/blob/master/img/langs/python.png?raw=true)](https://github.com/casbin/pycasbin) | [![dotnet](https://github.com/casbin/casbin.io/blob/master/img/langs/dotnet.png?raw=true)](https://github.com/apache/casbin-Casbin.NET) | [![delphi](https://github.com/casbin/casbin.io/blob/master/img/langs/delphi.png?raw=true)](https://github.com/casbin4d/Casbin4D) | [![rust](https://github.com/casbin/casbin.io/blob/master/img/langs/rust.png?raw=true)](https://github.com/casbin/casbin-rs) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [PyCasbin](https://github.com/casbin/pycasbin)               | [Casbin.NET](https://github.com/casbin/Casbin.NET)           | [Casbin4D](https://github.com/casbin4d/Casbin4D)             | [Casbin-RS](https://github.com/casbin/casbin-rs)             |
+| [PyCasbin](https://github.com/casbin/pycasbin)               | [Casbin.NET](https://github.com/apache/casbin-Casbin.NET)           | [Casbin4D](https://github.com/casbin4d/Casbin4D)             | [Casbin-RS](https://github.com/casbin/casbin-rs)             |
 | production-ready                                             | production-ready                                             | experimental                                                 | production-ready                                             |
 
 ## Table of contents
@@ -237,11 +237,11 @@ https://casbin.org/docs/adopters
 ## Contributors
 
 This project exists thanks to all the people who contribute. 
-<p><a href="https://github.com/casbin/Casbin.NET/graphs/contributors"><img src="https://opencollective.com/casbinnet/contributors.svg?width=890&button=false"></a></p>
+<p><a href="https://github.com/apache/casbin-Casbin.NET/graphs/contributors"><img src="https://opencollective.com/casbinnet/contributors.svg?width=890&button=false"></a></p>
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=casbin/Casbin.NET&type=Date)](https://star-history.com/#casbin/Casbin.NET&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=apache/casbin-Casbin.NET&type=Date)](https://star-history.com/#apache/casbin-Casbin.NET&Date)
 
 ## License
 
@@ -250,6 +250,6 @@ This project is licensed under the [Apache 2.0 license](LICENSE).
 ## Contact
 
 If you have any issues or feature requests, please contact us. PR is welcomed.
-- https://github.com/casbin/Casbin.NET/issues
+- https://github.com/apache/casbin-Casbin.NET/issues
 - https://discord.gg/S5UjpzGZjN
 
