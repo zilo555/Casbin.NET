@@ -162,7 +162,7 @@ jobs:
           run: dotnet nuget add source https://nuget.pkg.github.com/apache/index.json --name github.com --username apache --password $env:GITHUB_TOKEN
 
         - name: Push packages to github.com
-          run: dotnet nuget push .\packages\*.nupkg -s github.com --skip-duplicate;
+          run: dotnet nuget push .\packages\*.nupkg -s github.com -k $env:GITHUB_TOKEN --skip-duplicate --timeout 600;
 
         - name: Push packages to nuget.org
           run: dotnet nuget push .\packages\*.nupkg -s nuget.org -k $env:NUGET_API_TOKEN --skip-duplicate
