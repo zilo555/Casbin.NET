@@ -13,6 +13,7 @@ namespace Casbin.Functions
         private static readonly Regex s_keyMatch2Regex = new(@":[^/]+");
         private static readonly Regex s_keyMatch3Regex = new(@"\{[^/]+\}");
         private static readonly Regex s_keyMatch4Regex = new(@"\{([^/]+)\}");
+        private static readonly Regex s_keyMatch5Regex = new(@"\{[^/]+\}");
         private static readonly Regex s_keyGet2Regex = new(@":[^/]+");
         private static readonly Regex s_keyGet3Regex = new(@"\{[^/]+?\}");
 
@@ -223,20 +224,26 @@ namespace Casbin.Functions
         }
 
         /// <summary>
-        /// KeyMatch determines whether key1 matches the pattern of key2 and ignores the parameters in key2.
-        /// For example, "/foo/bar?status=1&amp;type=2" matches "/foo/bar"
+        /// KeyMatch5 determines whether key1 matches the pattern of key2 (similar to RESTful path),
+        /// key2 can contain a * or {param}. Query strings in key1 are ignored.
+        /// For example, "/foo/bar?status=1&amp;type=2" matches "/foo/bar", "/foo/bar" matches "/foo/*",
+        /// "/proxy/myid/res" matches "/proxy/{id}/*".
         /// </summary>
         /// <param name="key1"> The first argument. </param>
         /// <param name="key2"> The second argument. </param>
         /// <returns></returns>
         public static bool KeyMatch5(string key1, string key2)
         {
-            var key1Span = key1.AsSpan();
-            var key2Span = key2.AsSpan();
-            int index = key1Span.IndexOf('?');
-            return index is -1
-                ? key1Span.Equals(key2Span, StringComparison.Ordinal)
-                : key1Span.Slice(0, index).Equals(key2Span, StringComparison.Ordinal);
+            int queryIndex = key1.IndexOf('?');
+            if (queryIndex != -1)
+            {
+                key1 = key1.Substring(0, queryIndex);
+            }
+
+            key2 = key2.Replace("/*", "/.*");
+            key2 = s_keyMatch5Regex.Replace(key2, "([^/]+)");
+
+            return RegexMatch(key1, $"^{key2}$");
         }
 
         /// <summary>
