@@ -95,6 +95,8 @@ jobs:
           node-version: 20
 
       - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export PATH=$PATH:$(yarn global bin)
           yarn global add semantic-release@24.1.1
@@ -165,4 +167,6 @@ jobs:
           run: dotnet nuget push .\packages\*.nupkg -s github.com -k $env:GITHUB_TOKEN --skip-duplicate --timeout 600;
 
         - name: Push packages to nuget.org
+          env:
+            NUGET_API_TOKEN: ${{ secrets.NUGET_API_KEY }}
           run: dotnet nuget push .\packages\*.nupkg -s nuget.org -k $env:NUGET_API_TOKEN --skip-duplicate
